@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- get Font Awesome via Start for Free link. see:
+       https://fontawesome.com/
+       Need to setup and register for a new kit first
+       Paste in the link you get from the Copy Kit Code button above Bootstrap
+  -->
+  <script src="https://kit.fontawesome.com/8c04c255c7.js" crossorigin="anonymous"></script> 
+  <!-- get Bootstrap CDN via Get Started link.  See:
+       https://getbootstrap.com/
+       place above our own CSS just in-case we need to overwrite Bootstrap rules.
+  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <title>Todos</title>
+</head>
+<body>
+  <!-- BS container keeps everyting central -->
+  <div class="container">
+
+    <!-- center text, white text with margin of 4 in y dir -->
+    <header class="text-center text-light my-4">
+      <!-- margin bottom strength 4 -->
+      <h1 class="mb-4">Todo List</h1>
+      <form class="search">
+        <input type="text" name="search" placeholder="search todos" class="form-control m-auto">
+      </form>
+    </header>
+
+    <!-- BS list-group is going to style our todos, margin is central in the x direction and loght coloured text -->
+    <ul class="list-group todos mx-auto text-light">
+      <!-- BS list-group-item for list item styling, flex box alignment classes - displays contents as flex items with correct spacing -->
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>play mariokart</span>
+        <!-- Font Awesome, search for Trash icon see:
+        https://fontawesome.com/icons/trash?style=solid          
+        Added our own "delete" class
+        -->
+        <i class="far fa-trash-alt delete"></i>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>defeat ganon in zelda</span>
+        <i class="far fa-trash-alt delete"></i>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>make a veggie pie</span>
+        <i class="far fa-trash-alt delete"></i>
+      </li>      
+    </ul>
+
+    <!-- text-center to centre text and margin in y strength 4 -->
+    <form class="add text-center my-4">
+      <label class="text-light">Add a new todo...</label>
+      <!-- no submit button, just press enter on the form element -->
+      <input type="text" name="add" class="form-control m-auto">
+    </form>
+
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
