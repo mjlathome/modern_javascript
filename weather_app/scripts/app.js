@@ -9,14 +9,16 @@ const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon img');
+// #126 use classes
+const forecast = new Forecast();
+
+console.log(forecast);
 
 const updateUI = (data) => {
-  /*
   // extract data into local vars
-  console.log(data);
-  const cityDets = data.cityDets;
-  const weather = data.weather;
-  */
+  // console.log(data);
+  // const cityDets = data.cityDets;
+  // const weather = data.weather;
 
   // destructure properties - Destructuring
   // this allows us to store object properties in local vars
@@ -38,14 +40,14 @@ const updateUI = (data) => {
   icon.setAttribute('src', iconSrc);
   
   // use ternanry operator
-  /*
-  let timeSrc = null;
-  if(weather.IsDayTime){
-    timeSrc = 'img/day.svg';
-  } else {
-    timeSrc = 'img/night.svg';
-  }
-  */
+  
+  // let timeSrc = null;
+  // if(weather.IsDayTime){
+  //   timeSrc = 'img/day.svg';
+  // } else {
+  //   timeSrc = 'img/night.svg';
+  // }
+  
   let timeSrc = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg';   
   time.setAttribute('src', timeSrc);  
 
@@ -55,27 +57,28 @@ const updateUI = (data) => {
   }
 };
 
-// get the city and weather data
-const updateCity = async (city) => {
-  // console.log(city);
+// #126 use classes
+// // get the city and weather data
+// const updateCity = async (city) => {
+//   // console.log(city);
 
-  // can call out forecast.js functions as forecast.js is above our app.js functions within the HTML doc
+//   // can call out forecast.js functions as forecast.js is above our app.js functions within the HTML doc
 
-  // wait until the Location api has finished 
-  const cityDets = await getCity(city);
+//   // wait until the Location api has finished 
+//   const cityDets = await getCity(city);
 
-  // wait until the Current Conditions api has finished
-  const weather = await getWeather(cityDets.Key);
+//   // wait until the Current Conditions api has finished
+//   const weather = await getWeather(cityDets.Key);
 
-  // return object of city and weather objects as properties
-  /* use object shorthand notation as property name and value are the same
-  return {
-    cityDets: cityDets,
-    weather: weather
-  };
-  */
-  return { cityDets, weather };
-};
+//   // return object of city and weather objects as properties
+//   // use object shorthand notation as property name and value are the same
+//   // return {
+//   //   cityDets: cityDets,
+//   //   weather: weather
+//   // };
+  
+//   return { cityDets, weather };
+// };
 
 cityForm.addEventListener('submit', e => {
   // prevent default action
@@ -88,7 +91,9 @@ cityForm.addEventListener('submit', e => {
   cityForm.reset();
 
   // update the ui with new city and handle the Promise
-  updateCity(city)
+  // #126 classes
+  // updateCity(city)
+  forecast.updateCity(city)
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 
@@ -105,7 +110,9 @@ console.log(result);
 
 if(localStorage.getItem('city')){
   // make api call to get city weather and update our UI
-  updateCity(localStorage.getItem('city'))
+  // #126 use classes
+  // updateCity(localStorage.getItem('city'))
+  forecast.updateCity(localStorage.getItem('city'))
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 }
