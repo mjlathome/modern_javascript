@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- #129 add Bootstrap CSS via the following and Get Started:
+  https://getbootstrap.com/docs/4.3/getting-started/introduction/
+  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Databases</title>
+</head>
+<body>
+  <!-- #129 form layout -->
+  <div class="container my-5">
+    <h2>Recipes</h2>
+    <ul>
+      <!-- #130 removed
+      <li>Mushroom pie</li>
+      <li>Veg curry</li>
+      -->      
+    </ul>
+    <form>
+      <label for="recipe">Add a new recipe:</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="recipe" required>
+        <div class="input-group-append">
+          <input type="submit" value="add" class="btn btn-outline-secondary">
+        </div>
+      </div>
+    </form>
+    <button>unsubscribe from changes</button>
+  </div>
+
+  <!-- #129 Firebase javascript to connect qith udemy-modern-javascript database must be added before our app -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+  <!-- #129 added firestore database library --> 
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <!-- #129 removed firestore analytics     
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+  -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyB-flx6ZBEaThQyuHDJn3cNi3K1Bsq8wj8",
+      authDomain: "udemy-modern-javascript-318c2.firebaseapp.com",
+      databaseURL: "https://udemy-modern-javascript-318c2.firebaseio.com",
+      projectId: "udemy-modern-javascript-318c2",
+      storageBucket: "udemy-modern-javascript-318c2.appspot.com",
+      messagingSenderId: "888820528046",
+      appId: "1:888820528046:web:b3c9cfe378bab71c178e3f",
+      measurementId: "G-YNTBGBLQX0"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    // turned off analytics added by mistake somewhere.
+    // firebase.analytics();
+
+    // #129 get reference to firebase db
+    const db = firebase.firestore();
+  </script>  
+  <script src="sandbox.js"></script>
+</body>
+</html>
